@@ -1,0 +1,16 @@
+PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>
+PREFIX my: <http://example.org/ApplicationSchema#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+PREFIX : <http://www.ontotext.com/plugins/geosparql#>
+
+SELECT  ?f ?fWKT ?distance
+Where {
+    my:C my:hasPointGeometry  ?cGeom .
+    ?cGeom geo:asWKT ?cWKT .
+    ?f my:hasPointGeometry  ?fGeom .
+    ?fGeom geo:asWKT ?fWKT.
+	BIND(geof:distance(?cWKT,?fWKT,uom:metre) as ?distance)
+    BIND(30000 as ?closeRange)
+    Filter(?distance < ?closeRange)
+}

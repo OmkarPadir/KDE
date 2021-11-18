@@ -1,0 +1,31 @@
+PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>
+PREFIX my: <http://example.org/ApplicationSchema#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+PREFIX : <http://www.ontotext.com/plugins/geosparql#>
+
+SELECT  ?f ?fWKT ?distance
+Where {
+    my:Start my:hasPointGeometry  ?sGeom .
+    ?sGeom geo:asWKT ?sWKT .
+    my:Destination my:hasPointGeometry  ?dGeom .
+    ?dGeom geo:asWKT ?dWKT.
+	
+	?TempStart my:hasPointGeometry  ?tsGeom .
+    ?tsGeom geo:asWKT ?tsWKT.
+	?TempDest my:hasPointGeometry  ?tdGeom .
+    ?tdGeom geo:asWKT ?tdWKT.
+	
+	BIND(geof:distance(?sWKT,?tsWKT,uom:metre) as ?tsdistance)
+	BIND(geof:distance(?dWKT,?tdWKT,uom:metre) as ?tddistance)
+    BIND(500 as ?closeRange)
+    Filter(?tsdistance < ?closeRange && ?tdistance < ?closeRange)
+	
+	?StopTimeId my:stop_id ?TempStart
+	?StopTimeId my:trip_id ?TempTrip
+	?StopTimeId my:stop_sequence ?StartSequenceNumber
+	?DestStopTimeID my:trip_id ?TempTrip
+	?DestStopTimeID my:stop_id ?TempDest
+	?DestStopTimeID my:stop_sequence ?DestSequenceNumber
+	Filter(?DestSequenceNumber < ?StartSequenceNumber)
+}
