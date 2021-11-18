@@ -1,0 +1,438 @@
+Prefix(:=<http://www.semanticweb.org/tamia/ontologies/2021/10/untitled-ontology-4#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/tamia/ontologies/2021/10/untitled-ontology-4>
+
+Declaration(Class(:Bike))
+Declaration(Class(:OtherTransports))
+Declaration(Class(:agency))
+Declaration(Class(:calender))
+Declaration(Class(:calender_dates))
+Declaration(Class(:routes))
+Declaration(Class(:stop_times))
+Declaration(Class(:stops))
+Declaration(Class(:transfers))
+Declaration(Class(:trips))
+Declaration(ObjectProperty(:hasAgency))
+Declaration(ObjectProperty(:hasBike))
+Declaration(ObjectProperty(:hasCalenderDate))
+Declaration(ObjectProperty(:hasOtherTransports))
+Declaration(ObjectProperty(:hasRoute))
+Declaration(ObjectProperty(:hasStopTime))
+Declaration(ObjectProperty(:hasTransfer))
+Declaration(ObjectProperty(:hasTrip))
+Declaration(DataProperty(:Address))
+Declaration(DataProperty(:Latitude))
+Declaration(DataProperty(:Longitude))
+Declaration(DataProperty(:Name))
+Declaration(DataProperty(:Number))
+Declaration(DataProperty(:agency_id))
+Declaration(DataProperty(:agency_lang))
+Declaration(DataProperty(:agency_name))
+Declaration(DataProperty(:agency_timezone))
+Declaration(DataProperty(:agency_url))
+Declaration(DataProperty(:arrival_time))
+Declaration(DataProperty(:date))
+Declaration(DataProperty(:departure_time))
+Declaration(DataProperty(:direction_id))
+Declaration(DataProperty(:drop_off_type))
+Declaration(DataProperty(:end_date))
+Declaration(DataProperty(:exception_type))
+Declaration(DataProperty(:friday))
+Declaration(DataProperty(:from_stop_id))
+Declaration(DataProperty(:min_transfer_time))
+Declaration(DataProperty(:monday))
+Declaration(DataProperty(:pickup_type))
+Declaration(DataProperty(:route_id))
+Declaration(DataProperty(:route_long_name))
+Declaration(DataProperty(:route_short_name))
+Declaration(DataProperty(:route_type))
+Declaration(DataProperty(:saturday))
+Declaration(DataProperty(:service_id))
+Declaration(DataProperty(:start_date))
+Declaration(DataProperty(:stop_headsign))
+Declaration(DataProperty(:stop_id))
+Declaration(DataProperty(:stop_lat))
+Declaration(DataProperty(:stop_lon))
+Declaration(DataProperty(:stop_name))
+Declaration(DataProperty(:stop_sequence))
+Declaration(DataProperty(:sunday))
+Declaration(DataProperty(:thursday))
+Declaration(DataProperty(:to_stop_id))
+Declaration(DataProperty(:transfer_type))
+Declaration(DataProperty(:trip_headsign))
+Declaration(DataProperty(:trip_id))
+Declaration(DataProperty(:tuesday))
+Declaration(DataProperty(:wednesday))
+############################
+#   Object Properties
+############################
+
+# Object Property: :hasAgency (:hasAgency)
+
+SubObjectPropertyOf(:hasAgency owl:topObjectProperty)
+ObjectPropertyDomain(:hasAgency :agency)
+ObjectPropertyRange(:hasAgency :OtherTransports)
+
+# Object Property: :hasBike (:hasBike)
+
+SubObjectPropertyOf(:hasBike owl:topObjectProperty)
+ObjectPropertyDomain(:hasBike :Bike)
+ObjectPropertyRange(:hasBike owl:Thing)
+
+# Object Property: :hasCalenderDate (:hasCalenderDate)
+
+SubObjectPropertyOf(:hasCalenderDate owl:topObjectProperty)
+ObjectPropertyDomain(:hasCalenderDate :calender_dates)
+ObjectPropertyRange(:hasCalenderDate :calender)
+
+# Object Property: :hasOtherTransports (:hasOtherTransports)
+
+SubObjectPropertyOf(:hasOtherTransports owl:topObjectProperty)
+ObjectPropertyDomain(:hasOtherTransports :OtherTransports)
+ObjectPropertyRange(:hasOtherTransports owl:Thing)
+
+# Object Property: :hasRoute (:hasRoute)
+
+SubObjectPropertyOf(:hasRoute owl:topObjectProperty)
+ObjectPropertyDomain(:hasRoute :routes)
+ObjectPropertyRange(:hasRoute :agency)
+
+# Object Property: :hasStopTime (:hasStopTime)
+
+SubObjectPropertyOf(:hasStopTime owl:topObjectProperty)
+ObjectPropertyDomain(:hasStopTime :stop_times)
+ObjectPropertyRange(:hasStopTime :stops)
+ObjectPropertyRange(:hasStopTime :trips)
+
+# Object Property: :hasTransfer (:hasTransfer)
+
+SubObjectPropertyOf(:hasTransfer owl:topObjectProperty)
+ObjectPropertyDomain(:hasTransfer :transfers)
+ObjectPropertyRange(:hasTransfer :stops)
+
+# Object Property: :hasTrip (:hasTrip)
+
+SubObjectPropertyOf(:hasTrip owl:topObjectProperty)
+ObjectPropertyDomain(:hasTrip :trips)
+ObjectPropertyRange(:hasTrip :calender)
+ObjectPropertyRange(:hasTrip :routes)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :Address (:Address)
+
+SubDataPropertyOf(:Address owl:topDataProperty)
+DataPropertyDomain(:Address :Bike)
+DataPropertyRange(:Address xsd:string)
+
+# Data Property: :Latitude (:Latitude)
+
+SubDataPropertyOf(:Latitude owl:topDataProperty)
+DataPropertyDomain(:Latitude :Bike)
+DataPropertyRange(:Latitude xsd:float)
+
+# Data Property: :Longitude (:Longitude)
+
+SubDataPropertyOf(:Longitude owl:topDataProperty)
+DataPropertyDomain(:Longitude :Bike)
+DataPropertyRange(:Longitude xsd:float)
+
+# Data Property: :Name (:Name)
+
+SubDataPropertyOf(:Name owl:topDataProperty)
+DataPropertyDomain(:Name :Bike)
+DataPropertyRange(:Name xsd:string)
+
+# Data Property: :Number (:Number)
+
+SubDataPropertyOf(:Number owl:topDataProperty)
+DataPropertyDomain(:Number :Bike)
+DataPropertyRange(:Number xsd:int)
+
+# Data Property: :agency_id (:agency_id)
+
+SubDataPropertyOf(:agency_id owl:topDataProperty)
+DataPropertyDomain(:agency_id :agency)
+DataPropertyDomain(:agency_id :routes)
+DataPropertyRange(:agency_id xsd:int)
+
+# Data Property: :agency_lang (:agency_lang)
+
+SubDataPropertyOf(:agency_lang owl:topDataProperty)
+DataPropertyDomain(:agency_lang :agency)
+DataPropertyRange(:agency_lang xsd:language)
+
+# Data Property: :agency_name (:agency_name)
+
+SubDataPropertyOf(:agency_name owl:topDataProperty)
+DataPropertyDomain(:agency_name :agency)
+DataPropertyRange(:agency_name xsd:string)
+
+# Data Property: :agency_timezone (:agency_timezone)
+
+SubDataPropertyOf(:agency_timezone owl:topDataProperty)
+DataPropertyDomain(:agency_timezone :agency)
+DataPropertyRange(:agency_timezone xsd:string)
+
+# Data Property: :agency_url (:agency_url)
+
+SubDataPropertyOf(:agency_url owl:topDataProperty)
+DataPropertyDomain(:agency_url :agency)
+DataPropertyRange(:agency_url xsd:string)
+
+# Data Property: :arrival_time (:arrival_time)
+
+SubDataPropertyOf(:arrival_time owl:topDataProperty)
+DataPropertyDomain(:arrival_time :stop_times)
+DataPropertyRange(:arrival_time xsd:dateTime)
+
+# Data Property: :date (:date)
+
+SubDataPropertyOf(:date owl:topDataProperty)
+DataPropertyDomain(:date :calender_dates)
+DataPropertyRange(:date xsd:dateTime)
+
+# Data Property: :departure_time (:departure_time)
+
+SubDataPropertyOf(:departure_time owl:topDataProperty)
+DataPropertyDomain(:departure_time :stop_times)
+DataPropertyRange(:departure_time xsd:dateTime)
+
+# Data Property: :direction_id (:direction_id)
+
+SubDataPropertyOf(:direction_id owl:topDataProperty)
+DataPropertyDomain(:direction_id :trips)
+DataPropertyRange(:direction_id xsd:int)
+
+# Data Property: :drop_off_type (:drop_off_type)
+
+SubDataPropertyOf(:drop_off_type owl:topDataProperty)
+DataPropertyDomain(:drop_off_type :stop_times)
+DataPropertyRange(:drop_off_type xsd:int)
+
+# Data Property: :end_date (:end_date)
+
+SubDataPropertyOf(:end_date owl:topDataProperty)
+DataPropertyDomain(:end_date :calender)
+DataPropertyRange(:end_date xsd:dateTime)
+
+# Data Property: :exception_type (:exception_type)
+
+SubDataPropertyOf(:exception_type owl:topDataProperty)
+DataPropertyDomain(:exception_type :calender_dates)
+DataPropertyRange(:exception_type xsd:int)
+
+# Data Property: :friday (:friday)
+
+SubDataPropertyOf(:friday owl:topDataProperty)
+DataPropertyDomain(:friday :calender)
+DataPropertyRange(:friday xsd:int)
+
+# Data Property: :from_stop_id (:from_stop_id)
+
+SubDataPropertyOf(:from_stop_id owl:topDataProperty)
+DataPropertyDomain(:from_stop_id :transfers)
+DataPropertyRange(:from_stop_id xsd:string)
+
+# Data Property: :min_transfer_time (:min_transfer_time)
+
+SubDataPropertyOf(:min_transfer_time owl:topDataProperty)
+DataPropertyDomain(:min_transfer_time :transfers)
+DataPropertyRange(:min_transfer_time xsd:int)
+
+# Data Property: :monday (:monday)
+
+SubDataPropertyOf(:monday owl:topDataProperty)
+DataPropertyDomain(:monday :calender)
+DataPropertyRange(:monday xsd:int)
+
+# Data Property: :pickup_type (:pickup_type)
+
+SubDataPropertyOf(:pickup_type owl:topDataProperty)
+DataPropertyDomain(:pickup_type :stop_times)
+DataPropertyRange(:pickup_type xsd:int)
+
+# Data Property: :route_id (:route_id)
+
+SubDataPropertyOf(:route_id owl:topDataProperty)
+DataPropertyDomain(:route_id :routes)
+DataPropertyDomain(:route_id :trips)
+DataPropertyRange(:route_id xsd:string)
+
+# Data Property: :route_long_name (:route_long_name)
+
+SubDataPropertyOf(:route_long_name owl:topDataProperty)
+DataPropertyDomain(:route_long_name :routes)
+DataPropertyRange(:route_long_name xsd:string)
+
+# Data Property: :route_short_name (:route_short_name)
+
+SubDataPropertyOf(:route_short_name owl:topDataProperty)
+DataPropertyDomain(:route_short_name :routes)
+DataPropertyRange(:route_short_name xsd:string)
+
+# Data Property: :route_type (:route_type)
+
+SubDataPropertyOf(:route_type owl:topDataProperty)
+DataPropertyDomain(:route_type :routes)
+DataPropertyRange(:route_type xsd:int)
+
+# Data Property: :saturday (:saturday)
+
+SubDataPropertyOf(:saturday owl:topDataProperty)
+DataPropertyDomain(:saturday :calender)
+DataPropertyRange(:saturday xsd:int)
+
+# Data Property: :service_id (:service_id)
+
+SubDataPropertyOf(:service_id owl:topDataProperty)
+DataPropertyDomain(:service_id :calender)
+DataPropertyDomain(:service_id :calender_dates)
+DataPropertyDomain(:service_id :trips)
+DataPropertyRange(:service_id xsd:string)
+
+# Data Property: :start_date (:start_date)
+
+SubDataPropertyOf(:start_date owl:topDataProperty)
+DataPropertyDomain(:start_date :calender)
+DataPropertyRange(:start_date xsd:dateTime)
+
+# Data Property: :stop_headsign (:stop_headsign)
+
+SubDataPropertyOf(:stop_headsign owl:topDataProperty)
+DataPropertyDomain(:stop_headsign :stop_times)
+DataPropertyRange(:stop_headsign xsd:string)
+
+# Data Property: :stop_id (:stop_id)
+
+SubDataPropertyOf(:stop_id owl:topDataProperty)
+DataPropertyDomain(:stop_id :stop_times)
+DataPropertyDomain(:stop_id :stops)
+DataPropertyRange(:stop_id xsd:string)
+
+# Data Property: :stop_lat (:stop_lat)
+
+SubDataPropertyOf(:stop_lat owl:topDataProperty)
+DataPropertyDomain(:stop_lat :stops)
+DataPropertyRange(:stop_lat xsd:float)
+
+# Data Property: :stop_lon (:stop_lon)
+
+SubDataPropertyOf(:stop_lon owl:topDataProperty)
+DataPropertyDomain(:stop_lon :stops)
+DataPropertyRange(:stop_lon xsd:float)
+
+# Data Property: :stop_name (:stop_name)
+
+SubDataPropertyOf(:stop_name owl:topDataProperty)
+DataPropertyDomain(:stop_name :stops)
+DataPropertyRange(:stop_name xsd:string)
+
+# Data Property: :stop_sequence (:stop_sequence)
+
+SubDataPropertyOf(:stop_sequence owl:topDataProperty)
+DataPropertyDomain(:stop_sequence :stop_times)
+DataPropertyRange(:stop_sequence xsd:int)
+
+# Data Property: :sunday (:sunday)
+
+SubDataPropertyOf(:sunday owl:topDataProperty)
+DataPropertyDomain(:sunday :calender)
+DataPropertyRange(:sunday xsd:int)
+
+# Data Property: :thursday (:thursday)
+
+SubDataPropertyOf(:thursday owl:topDataProperty)
+DataPropertyDomain(:thursday :calender)
+DataPropertyRange(:thursday xsd:int)
+
+# Data Property: :to_stop_id (:to_stop_id)
+
+SubDataPropertyOf(:to_stop_id owl:topDataProperty)
+DataPropertyDomain(:to_stop_id :transfers)
+DataPropertyRange(:to_stop_id xsd:string)
+
+# Data Property: :transfer_type (:transfer_type)
+
+SubDataPropertyOf(:transfer_type owl:topDataProperty)
+DataPropertyDomain(:transfer_type :transfers)
+DataPropertyRange(:transfer_type xsd:int)
+
+# Data Property: :trip_headsign (:trip_headsign)
+
+SubDataPropertyOf(:trip_headsign owl:topDataProperty)
+DataPropertyDomain(:trip_headsign :trips)
+DataPropertyRange(:trip_headsign xsd:string)
+
+# Data Property: :trip_id (:trip_id)
+
+SubDataPropertyOf(:trip_id owl:topDataProperty)
+DataPropertyDomain(:trip_id :stop_times)
+DataPropertyDomain(:trip_id :trips)
+DataPropertyRange(:trip_id xsd:string)
+
+# Data Property: :tuesday (:tuesday)
+
+SubDataPropertyOf(:tuesday owl:topDataProperty)
+DataPropertyDomain(:tuesday :calender)
+DataPropertyRange(:tuesday xsd:int)
+
+# Data Property: :wednesday (:wednesday)
+
+SubDataPropertyOf(:wednesday owl:topDataProperty)
+DataPropertyDomain(:wednesday :calender)
+DataPropertyRange(:wednesday xsd:int)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :Bike (:Bike)
+
+DisjointClasses(:Bike :OtherTransports)
+
+# Class: :agency (:agency)
+
+SubClassOf(:agency :OtherTransports)
+
+# Class: :calender (:calender)
+
+SubClassOf(:calender :OtherTransports)
+
+# Class: :calender_dates (:calender_dates)
+
+SubClassOf(:calender_dates :OtherTransports)
+
+# Class: :routes (:routes)
+
+SubClassOf(:routes :OtherTransports)
+
+# Class: :stop_times (:stop_times)
+
+SubClassOf(:stop_times :OtherTransports)
+
+# Class: :stops (:stops)
+
+SubClassOf(:stops :OtherTransports)
+
+# Class: :transfers (:transfers)
+
+SubClassOf(:transfers :OtherTransports)
+
+# Class: :trips (:trips)
+
+SubClassOf(:trips :OtherTransports)
+
+
+)

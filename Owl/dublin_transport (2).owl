@@ -1,0 +1,333 @@
+Prefix(:=<http://www.semanticweb.org/tamia/ontologies/2021/10/untitled-ontology-5#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/tamia/ontologies/2021/10/untitled-ontology-5>
+
+Declaration(Class(<http://foo.example/Transport/agency>))
+Declaration(Class(<http://foo.example/Transport/attractions>))
+Declaration(Class(<http://foo.example/Transport/bikestop>))
+Declaration(Class(<http://foo.example/Transport/busagency>))
+Declaration(Class(<http://foo.example/Transport/buscalendar>))
+Declaration(Class(<http://foo.example/Transport/busroute>))
+Declaration(Class(<http://foo.example/Transport/busstop>))
+Declaration(Class(<http://foo.example/Transport/busstoptime>))
+Declaration(Class(<http://foo.example/Transport/bustrip>))
+Declaration(Class(<http://foo.example/Transport/calendar>))
+Declaration(Class(<http://foo.example/Transport/luasagency>))
+Declaration(Class(<http://foo.example/Transport/luascalendar>))
+Declaration(Class(<http://foo.example/Transport/luasroute>))
+Declaration(Class(<http://foo.example/Transport/luasstop>))
+Declaration(Class(<http://foo.example/Transport/luasstoptime>))
+Declaration(Class(<http://foo.example/Transport/luastrip>))
+Declaration(Class(<http://foo.example/Transport/route>))
+Declaration(Class(<http://foo.example/Transport/stops>))
+Declaration(Class(<http://foo.example/Transport/stoptimes>))
+Declaration(Class(<http://foo.example/Transport/trips>))
+Declaration(ObjectProperty(<http://foo.example/Transport/has_agency_id>))
+Declaration(ObjectProperty(<http://foo.example/Transport/has_next_stop>))
+Declaration(ObjectProperty(<http://foo.example/Transport/has_route_id>))
+Declaration(ObjectProperty(<http://foo.example/Transport/has_service_id>))
+Declaration(ObjectProperty(<http://foo.example/Transport/has_stop_id>))
+Declaration(ObjectProperty(<http://foo.example/Transport/has_stoptime>))
+Declaration(ObjectProperty(<http://foo.example/Transport/has_trip_id>))
+Declaration(ObjectProperty(<http://foo.example/Transport/is_close_to>))
+Declaration(ObjectProperty(<http://foo.example/Transport/is_part_of>))
+Declaration(ObjectProperty(<http://foo.example/Transport/offer_route>))
+Declaration(ObjectProperty(<http://foo.example/Transport/serves_trip>))
+Declaration(DataProperty(<http://foo.example/Transport/has_address_locality>))
+Declaration(DataProperty(<http://foo.example/Transport/has_agency_name>))
+Declaration(DataProperty(<http://foo.example/Transport/has_arrival_time>))
+Declaration(DataProperty(<http://foo.example/Transport/has_attraction_name>))
+Declaration(DataProperty(<http://foo.example/Transport/has_departure_time>))
+Declaration(DataProperty(<http://foo.example/Transport/has_route_short_name_id>))
+Declaration(DataProperty(<http://foo.example/Transport/has_route_type>))
+Declaration(DataProperty(<http://foo.example/Transport/has_stop_sequence>))
+Declaration(DataProperty(<http://foo.example/Transport/has_stop_time_type>))
+Declaration(DataProperty(<http://foo.example/Transport/has_tags>))
+Declaration(DataProperty(<http://foo.example/Transport/has_trip_type>))
+Declaration(DataProperty(<http://foo.example/Transport/is_active_on_frdiay>))
+Declaration(DataProperty(<http://foo.example/Transport/is_active_on_monday>))
+Declaration(DataProperty(<http://foo.example/Transport/is_active_on_saturday>))
+Declaration(DataProperty(<http://foo.example/Transport/is_active_on_sunday>))
+Declaration(DataProperty(<http://foo.example/Transport/is_active_on_thursday>))
+Declaration(DataProperty(<http://foo.example/Transport/is_active_on_tuesday>))
+Declaration(DataProperty(<http://foo.example/Transport/is_active_on_wednesday>))
+Declaration(DataProperty(<http://foo.example/Transport/stop_name>))
+Declaration(DataProperty(<http://foo.example/Transport/stop_type>))
+Declaration(DataProperty(<http://www.opengis.net/ont/geosparql#asWKT>))
+Declaration(Datatype(<http://www.opengis.net/ont/geosparql#wktLiteral>))
+Declaration(Datatype(xsd:time))
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://foo.example/Transport/has_agency_id> (<http://foo.example/Transport/has_agency_id>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/has_agency_id> owl:topObjectProperty)
+InverseObjectProperties(<http://foo.example/Transport/has_agency_id> <http://foo.example/Transport/offer_route>)
+ObjectPropertyDomain(<http://foo.example/Transport/has_agency_id> <http://foo.example/Transport/route>)
+ObjectPropertyRange(<http://foo.example/Transport/has_agency_id> ObjectExactCardinality(1 <http://foo.example/Transport/has_agency_id> <http://foo.example/Transport/agency>))
+
+# Object Property: <http://foo.example/Transport/has_next_stop> (<http://foo.example/Transport/has_next_stop>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/has_next_stop> owl:topObjectProperty)
+TransitiveObjectProperty(<http://foo.example/Transport/has_next_stop>)
+ObjectPropertyDomain(<http://foo.example/Transport/has_next_stop> <http://foo.example/Transport/stops>)
+ObjectPropertyRange(<http://foo.example/Transport/has_next_stop> <http://foo.example/Transport/stops>)
+
+# Object Property: <http://foo.example/Transport/has_route_id> (<http://foo.example/Transport/has_route_id>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/has_route_id> owl:topObjectProperty)
+InverseObjectProperties(<http://foo.example/Transport/has_route_id> <http://foo.example/Transport/is_part_of>)
+ObjectPropertyDomain(<http://foo.example/Transport/has_route_id> <http://foo.example/Transport/trips>)
+ObjectPropertyRange(<http://foo.example/Transport/has_route_id> ObjectExactCardinality(1 <http://foo.example/Transport/has_route_id> <http://foo.example/Transport/route>))
+
+# Object Property: <http://foo.example/Transport/has_service_id> (<http://foo.example/Transport/has_service_id>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/has_service_id> owl:topObjectProperty)
+InverseObjectProperties(<http://foo.example/Transport/has_service_id> <http://foo.example/Transport/serves_trip>)
+ObjectPropertyDomain(<http://foo.example/Transport/has_service_id> <http://foo.example/Transport/trips>)
+ObjectPropertyRange(<http://foo.example/Transport/has_service_id> ObjectMinCardinality(1 <http://foo.example/Transport/has_service_id> <http://foo.example/Transport/calendar>))
+
+# Object Property: <http://foo.example/Transport/has_stop_id> (<http://foo.example/Transport/has_stop_id>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/has_stop_id> owl:topObjectProperty)
+ObjectPropertyDomain(<http://foo.example/Transport/has_stop_id> <http://foo.example/Transport/stoptimes>)
+ObjectPropertyRange(<http://foo.example/Transport/has_stop_id> <http://foo.example/Transport/stops>)
+
+# Object Property: <http://foo.example/Transport/has_stoptime> (<http://foo.example/Transport/has_stoptime>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/has_stoptime> owl:topObjectProperty)
+ObjectPropertyDomain(<http://foo.example/Transport/has_stoptime> <http://foo.example/Transport/stops>)
+ObjectPropertyDomain(<http://foo.example/Transport/has_stoptime> <http://foo.example/Transport/trips>)
+ObjectPropertyRange(<http://foo.example/Transport/has_stoptime> <http://foo.example/Transport/stoptimes>)
+
+# Object Property: <http://foo.example/Transport/has_trip_id> (<http://foo.example/Transport/has_trip_id>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/has_trip_id> owl:topObjectProperty)
+ObjectPropertyDomain(<http://foo.example/Transport/has_trip_id> <http://foo.example/Transport/stoptimes>)
+ObjectPropertyRange(<http://foo.example/Transport/has_trip_id> <http://foo.example/Transport/trips>)
+
+# Object Property: <http://foo.example/Transport/is_close_to> (<http://foo.example/Transport/is_close_to>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/is_close_to> owl:topObjectProperty)
+SymmetricObjectProperty(<http://foo.example/Transport/is_close_to>)
+ObjectPropertyDomain(<http://foo.example/Transport/is_close_to> <http://foo.example/Transport/stops>)
+ObjectPropertyRange(<http://foo.example/Transport/is_close_to> <http://foo.example/Transport/attractions>)
+
+# Object Property: <http://foo.example/Transport/is_part_of> (<http://foo.example/Transport/is_part_of>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/is_part_of> owl:topObjectProperty)
+ObjectPropertyDomain(<http://foo.example/Transport/is_part_of> <http://foo.example/Transport/route>)
+ObjectPropertyRange(<http://foo.example/Transport/is_part_of> <http://foo.example/Transport/trips>)
+
+# Object Property: <http://foo.example/Transport/offer_route> (<http://foo.example/Transport/offer_route>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/offer_route> owl:topObjectProperty)
+ObjectPropertyDomain(<http://foo.example/Transport/offer_route> <http://foo.example/Transport/agency>)
+ObjectPropertyRange(<http://foo.example/Transport/offer_route> ObjectMinCardinality(1 <http://foo.example/Transport/offer_route> <http://foo.example/Transport/route>))
+
+# Object Property: <http://foo.example/Transport/serves_trip> (<http://foo.example/Transport/serves_trip>)
+
+SubObjectPropertyOf(<http://foo.example/Transport/serves_trip> owl:topObjectProperty)
+ObjectPropertyDomain(<http://foo.example/Transport/serves_trip> <http://foo.example/Transport/calendar>)
+ObjectPropertyRange(<http://foo.example/Transport/serves_trip> <http://foo.example/Transport/trips>)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://foo.example/Transport/has_address_locality> (<http://foo.example/Transport/has_address_locality>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_address_locality> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_address_locality> <http://foo.example/Transport/attractions>)
+DataPropertyRange(<http://foo.example/Transport/has_address_locality> xsd:string)
+
+# Data Property: <http://foo.example/Transport/has_agency_name> (<http://foo.example/Transport/has_agency_name>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_agency_name> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_agency_name> <http://foo.example/Transport/agency>)
+DataPropertyRange(<http://foo.example/Transport/has_agency_name> xsd:string)
+
+# Data Property: <http://foo.example/Transport/has_arrival_time> (<http://foo.example/Transport/has_arrival_time>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_arrival_time> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_arrival_time> <http://foo.example/Transport/stoptimes>)
+DataPropertyRange(<http://foo.example/Transport/has_arrival_time> xsd:time)
+
+# Data Property: <http://foo.example/Transport/has_attraction_name> (<http://foo.example/Transport/has_attraction_name>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_attraction_name> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_attraction_name> <http://foo.example/Transport/attractions>)
+DataPropertyRange(<http://foo.example/Transport/has_attraction_name> xsd:string)
+
+# Data Property: <http://foo.example/Transport/has_departure_time> (<http://foo.example/Transport/has_departure_time>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_departure_time> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_departure_time> <http://foo.example/Transport/stoptimes>)
+DataPropertyRange(<http://foo.example/Transport/has_departure_time> xsd:time)
+
+# Data Property: <http://foo.example/Transport/has_route_short_name_id> (<http://foo.example/Transport/has_route_short_name_id>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_route_short_name_id> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_route_short_name_id> <http://foo.example/Transport/route>)
+DataPropertyRange(<http://foo.example/Transport/has_route_short_name_id> xsd:string)
+
+# Data Property: <http://foo.example/Transport/has_route_type> (<http://foo.example/Transport/has_route_type>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_route_type> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_route_type> <http://foo.example/Transport/route>)
+DataPropertyRange(<http://foo.example/Transport/has_route_type> xsd:string)
+
+# Data Property: <http://foo.example/Transport/has_stop_sequence> (<http://foo.example/Transport/has_stop_sequence>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_stop_sequence> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_stop_sequence> <http://foo.example/Transport/stoptimes>)
+DataPropertyRange(<http://foo.example/Transport/has_stop_sequence> xsd:integer)
+
+# Data Property: <http://foo.example/Transport/has_stop_time_type> (<http://foo.example/Transport/has_stop_time_type>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_stop_time_type> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_stop_time_type> <http://foo.example/Transport/stoptimes>)
+DataPropertyRange(<http://foo.example/Transport/has_stop_time_type> xsd:string)
+
+# Data Property: <http://foo.example/Transport/has_tags> (<http://foo.example/Transport/has_tags>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_tags> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_tags> <http://foo.example/Transport/attractions>)
+DataPropertyRange(<http://foo.example/Transport/has_tags> xsd:string)
+
+# Data Property: <http://foo.example/Transport/has_trip_type> (<http://foo.example/Transport/has_trip_type>)
+
+SubDataPropertyOf(<http://foo.example/Transport/has_trip_type> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/has_trip_type> <http://foo.example/Transport/trips>)
+DataPropertyRange(<http://foo.example/Transport/has_trip_type> xsd:string)
+
+# Data Property: <http://foo.example/Transport/is_active_on_frdiay> (<http://foo.example/Transport/is_active_on_frdiay>)
+
+SubDataPropertyOf(<http://foo.example/Transport/is_active_on_frdiay> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/is_active_on_frdiay> <http://foo.example/Transport/calendar>)
+DataPropertyRange(<http://foo.example/Transport/is_active_on_frdiay> xsd:byte)
+
+# Data Property: <http://foo.example/Transport/is_active_on_monday> (<http://foo.example/Transport/is_active_on_monday>)
+
+SubDataPropertyOf(<http://foo.example/Transport/is_active_on_monday> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/is_active_on_monday> <http://foo.example/Transport/calendar>)
+DataPropertyRange(<http://foo.example/Transport/is_active_on_monday> xsd:byte)
+
+# Data Property: <http://foo.example/Transport/is_active_on_saturday> (<http://foo.example/Transport/is_active_on_saturday>)
+
+SubDataPropertyOf(<http://foo.example/Transport/is_active_on_saturday> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/is_active_on_saturday> <http://foo.example/Transport/calendar>)
+DataPropertyRange(<http://foo.example/Transport/is_active_on_saturday> xsd:byte)
+
+# Data Property: <http://foo.example/Transport/is_active_on_sunday> (<http://foo.example/Transport/is_active_on_sunday>)
+
+SubDataPropertyOf(<http://foo.example/Transport/is_active_on_sunday> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/is_active_on_sunday> <http://foo.example/Transport/calendar>)
+DataPropertyRange(<http://foo.example/Transport/is_active_on_sunday> xsd:byte)
+
+# Data Property: <http://foo.example/Transport/is_active_on_thursday> (<http://foo.example/Transport/is_active_on_thursday>)
+
+SubDataPropertyOf(<http://foo.example/Transport/is_active_on_thursday> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/is_active_on_thursday> <http://foo.example/Transport/calendar>)
+DataPropertyRange(<http://foo.example/Transport/is_active_on_thursday> xsd:byte)
+
+# Data Property: <http://foo.example/Transport/is_active_on_tuesday> (<http://foo.example/Transport/is_active_on_tuesday>)
+
+SubDataPropertyOf(<http://foo.example/Transport/is_active_on_tuesday> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/is_active_on_tuesday> <http://foo.example/Transport/calendar>)
+DataPropertyRange(<http://foo.example/Transport/is_active_on_tuesday> xsd:byte)
+
+# Data Property: <http://foo.example/Transport/is_active_on_wednesday> (<http://foo.example/Transport/is_active_on_wednesday>)
+
+SubDataPropertyOf(<http://foo.example/Transport/is_active_on_wednesday> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/is_active_on_wednesday> <http://foo.example/Transport/calendar>)
+DataPropertyRange(<http://foo.example/Transport/is_active_on_wednesday> xsd:byte)
+
+# Data Property: <http://foo.example/Transport/stop_name> (<http://foo.example/Transport/stop_name>)
+
+SubDataPropertyOf(<http://foo.example/Transport/stop_name> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/stop_name> <http://foo.example/Transport/stops>)
+DataPropertyRange(<http://foo.example/Transport/stop_name> xsd:string)
+
+# Data Property: <http://foo.example/Transport/stop_type> (<http://foo.example/Transport/stop_type>)
+
+SubDataPropertyOf(<http://foo.example/Transport/stop_type> owl:topDataProperty)
+DataPropertyDomain(<http://foo.example/Transport/stop_type> <http://foo.example/Transport/calendar>)
+DataPropertyDomain(<http://foo.example/Transport/stop_type> <http://foo.example/Transport/stops>)
+DataPropertyRange(<http://foo.example/Transport/stop_type> xsd:string)
+
+# Data Property: <http://www.opengis.net/ont/geosparql#asWKT> (<http://www.opengis.net/ont/geosparql#asWKT>)
+
+SubDataPropertyOf(<http://www.opengis.net/ont/geosparql#asWKT> owl:topDataProperty)
+DataPropertyDomain(<http://www.opengis.net/ont/geosparql#asWKT> <http://foo.example/Transport/attractions>)
+DataPropertyDomain(<http://www.opengis.net/ont/geosparql#asWKT> <http://foo.example/Transport/stops>)
+DataPropertyRange(<http://www.opengis.net/ont/geosparql#asWKT> <http://www.opengis.net/ont/geosparql#wktLiteral>)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://foo.example/Transport/bikestop> (<http://foo.example/Transport/bikestop>)
+
+SubClassOf(<http://foo.example/Transport/bikestop> <http://foo.example/Transport/stops>)
+
+# Class: <http://foo.example/Transport/busagency> (<http://foo.example/Transport/busagency>)
+
+SubClassOf(<http://foo.example/Transport/busagency> <http://foo.example/Transport/agency>)
+
+# Class: <http://foo.example/Transport/buscalendar> (<http://foo.example/Transport/buscalendar>)
+
+SubClassOf(<http://foo.example/Transport/buscalendar> <http://foo.example/Transport/calendar>)
+
+# Class: <http://foo.example/Transport/busroute> (<http://foo.example/Transport/busroute>)
+
+SubClassOf(<http://foo.example/Transport/busroute> <http://foo.example/Transport/route>)
+
+# Class: <http://foo.example/Transport/busstop> (<http://foo.example/Transport/busstop>)
+
+SubClassOf(<http://foo.example/Transport/busstop> <http://foo.example/Transport/stops>)
+
+# Class: <http://foo.example/Transport/busstoptime> (<http://foo.example/Transport/busstoptime>)
+
+SubClassOf(<http://foo.example/Transport/busstoptime> <http://foo.example/Transport/stoptimes>)
+
+# Class: <http://foo.example/Transport/bustrip> (<http://foo.example/Transport/bustrip>)
+
+SubClassOf(<http://foo.example/Transport/bustrip> <http://foo.example/Transport/trips>)
+
+# Class: <http://foo.example/Transport/luasagency> (<http://foo.example/Transport/luasagency>)
+
+SubClassOf(<http://foo.example/Transport/luasagency> <http://foo.example/Transport/agency>)
+
+# Class: <http://foo.example/Transport/luascalendar> (<http://foo.example/Transport/luascalendar>)
+
+SubClassOf(<http://foo.example/Transport/luascalendar> <http://foo.example/Transport/calendar>)
+
+# Class: <http://foo.example/Transport/luasroute> (<http://foo.example/Transport/luasroute>)
+
+SubClassOf(<http://foo.example/Transport/luasroute> <http://foo.example/Transport/route>)
+
+# Class: <http://foo.example/Transport/luasstop> (<http://foo.example/Transport/luasstop>)
+
+SubClassOf(<http://foo.example/Transport/luasstop> <http://foo.example/Transport/stops>)
+
+# Class: <http://foo.example/Transport/luasstoptime> (<http://foo.example/Transport/luasstoptime>)
+
+SubClassOf(<http://foo.example/Transport/luasstoptime> <http://foo.example/Transport/stoptimes>)
+
+# Class: <http://foo.example/Transport/luastrip> (<http://foo.example/Transport/luastrip>)
+
+SubClassOf(<http://foo.example/Transport/luastrip> <http://foo.example/Transport/trips>)
+
+
+)
